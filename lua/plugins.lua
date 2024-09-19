@@ -13,11 +13,11 @@ return {
       "hrsh7th/vim-vsnip",
     },
     config = function()
-      require("core.cmp").setup()
+      require("core.nvim-cmp").setup()
     end,
   },
   {
-    'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = true,
     opts = {},
@@ -36,7 +36,7 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
+    "cpea2506/one_monokai.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -51,7 +51,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("core.nvimtree").setup()
+      require("core.nvim-tree").setup()
     end,
   },
   {
@@ -93,7 +93,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      require("core.treesitter").setup()
+      require("core.nvim-treesitter").setup()
     end,
   },
 }

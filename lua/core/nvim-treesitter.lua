@@ -1,11 +1,8 @@
 local M = {}
 
-local function opts(desc)
-  return { desc = "telescope: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-end
-
 function M.setup()
   local status, configs = pcall(require, "nvim-treesitter.configs")
+
   if not status then
     print("Failed to load nvim-treesitter")
     return
@@ -14,10 +11,13 @@ function M.setup()
   configs.setup({
     ensure_installed = {
       "c",
+      "cpp",
       "lua",
+      "markdown",
       "html",
       "css",
       "javascript",
+      "typescript",
       "go",
     },
     highlight = {

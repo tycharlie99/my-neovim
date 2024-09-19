@@ -9,7 +9,14 @@ function M.setup()
   end
   lspconfig.setup({
     ensure_installed = {
-      "lua_ls",
+      "lua_ls", -- lua
+      "clangd", -- c, cpp
+      "tsserver", -- typescript, javascript
+      "marksman", -- markdown
+      "cssls", -- css, scss
+      "html",
+      "gopls", -- golang
+      "jsonls", -- json
     },
   })
 end
