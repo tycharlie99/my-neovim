@@ -46,7 +46,10 @@ function M.setup()
     settings = {
       Lua = {
         diagnostics = {
-          globals = { "vim" },
+          globals = { 
+            "vim",
+            "bufnr",
+          },
         },
       },
     },

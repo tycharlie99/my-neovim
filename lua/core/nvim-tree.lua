@@ -4,7 +4,6 @@ local function on_attach(bufnr)
   local api = require("nvim-tree.api")
 
   local function opts(desc)
-    local bufnr = vim.api.nvim_get_current_buf()
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 

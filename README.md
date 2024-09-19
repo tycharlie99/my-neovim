@@ -1,2 +1,4 @@
-# my-neovim
+# My Neovim
+
 The configuration of my neovim.
+

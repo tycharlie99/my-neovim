@@ -1,7 +1,6 @@
 local M = {}
 
 local function opts(desc)
-  local bufnr = vim.api.nvim_get_current_buf()
   return { desc = "telescope: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
 
