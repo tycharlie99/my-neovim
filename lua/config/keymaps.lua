@@ -20,4 +20,5 @@ vim.keymap.set("n", "<leader>bv", "<C-w>v", opts("Window: Vertical split"))
 vim.keymap.set("n", "<leader>bh", "<C-w>s", opts("Window: Horizontal Split"))
 vim.keymap.set("n", "<leader>bx", ":close<CR>", opts("Window: Close"))
 
-vim.keymap.set("n", "<leader>a", "gcc", {})
+vim.keymap.set({"n"}, "<leader>/", "gcc", {remap = true})
+vim.keymap.set({"v"}, "<leader>/", "gc", {remap = true})

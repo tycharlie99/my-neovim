@@ -23,10 +23,10 @@ vim.opt.smartcase = true
 vim.opt.cursorline = true
 
 -- backsapce
-vim.opt.backspace = 'indent,eol,start'
+vim.opt.backspace = "indent,eol,start"
 
 -- clipboard
-vim.opt.clipboard:append('unnamedplus')
+vim.opt.clipboard:append("unnamedplus")
 
 -- split window
 vim.opt.splitright = true
@@ -37,7 +37,7 @@ vim.opt.updatetime = 300
 
 -- set list
 vim.opt.list = true
-vim.opt.listchars = {tab = '>-', space = '·', eol = '$'}
+vim.opt.listchars = {tab = ">-", space = "·", eol = "$"}
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
