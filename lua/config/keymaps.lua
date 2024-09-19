@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts("nvim-tree: tog
 vim.keymap.set("n", "<leader>tk", ":tabnext<CR>", opts("tab: next"))
 vim.keymap.set("n", "<leader>tj", ":tabprevious<CR>", opts("tab: previous"))
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", opts("tab: new"))
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts("tab: close"))
 
 vim.keymap.set("n", "<M-j>", ":m .+1<CR>", opts("Line: move down"))
 vim.keymap.set("n", "<M-k>", ":m .-2<CR>", opts("Line: move up"))

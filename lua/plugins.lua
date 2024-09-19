@@ -1,4 +1,11 @@
 return {
+  {"akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function ()
+      require("core.bufferline").setup()
+    end,
+  },
   {
     "OXY2DEV/markview.nvim",
     lazy = false,

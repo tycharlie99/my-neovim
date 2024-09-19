@@ -14,6 +14,7 @@ function M.setup()
   local builtin = require("telescope.builtin")
   vim.keymap.set("n", "<leader>ff", builtin.find_files, opts("teloscope: Find files"))
   vim.keymap.set("n", "<leader>fg", builtin.live_grep, opts("teloscope: Find live grep"))
+  vim.keymap.set("n", "<leader>fb", builtin.buffers, opts("teloscope: Find buffers"))
 
   telescope.setup()
 end
