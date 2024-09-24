@@ -8,6 +8,13 @@ function M.setup()
     return
   end
 
+  local function opts(desc)
+    return { desc = "nvim-lspconfig: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
+
   lspconfig.jsonls.setup({
     cmd = {
       "vscode-json-language-server",

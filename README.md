@@ -6,6 +6,12 @@ The configuration of my neovim.
 
 - `<leader>`: whitespace key
 
+
+### Language Config Server config (lspconfig)
+
+- `gd`: Go to definition
+- `gD`: Go to declaration
+
 ### Window
 
 - `<leader>bv`: Split window vertical
