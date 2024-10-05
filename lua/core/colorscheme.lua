@@ -7,13 +7,11 @@ function M.setup()
   end
 
   color.setup({
-
     transparent = false,
     themes = function()
       return {}
     end,
-    italics = false,
-
+    italics = true,
   })
 end
 

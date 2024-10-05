@@ -53,7 +53,7 @@ function M.setup()
     settings = {
       Lua = {
         diagnostics = {
-          globals = { 
+          globals = {
             "vim",
             "bufnr",
           },
@@ -112,6 +112,14 @@ function M.setup()
   })
 
   lspconfig.marksman.setup({
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "markdown",
+      callback = function()
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.tabstop = 4
+        vim.opt_local.expandtab = true
+      end,
+    }),
     cmd = {
       "marksman",
       "server",
