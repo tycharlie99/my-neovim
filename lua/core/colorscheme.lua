@@ -7,11 +7,15 @@ function M.setup()
   end
 
   color.setup({
-    transparent = false,
-    themes = function()
-      return {}
+    -- it will use the original terminal themes
+    transparent = true,
+    colors = {},
+    themes = function(colors)
+      return {
+        Comment = { fg = colors.gray, italic = true },
+      }
     end,
-    italics = true,
+    italics = false,
   })
 end
 
