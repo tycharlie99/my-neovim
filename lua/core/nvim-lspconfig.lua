@@ -65,6 +65,7 @@ function M.setup()
   lspconfig.clangd.setup({
     cmd = {
       "clangd",
+      "-std=c++11",
     },
     filetypes = {
       "c",

@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 
 local function opts(desc)
-  return { desc = desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    return { desc = desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts("nvim-tree: toggle the window"))
