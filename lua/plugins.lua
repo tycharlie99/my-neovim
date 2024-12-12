@@ -1,5 +1,12 @@
 return {
     {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        config = function ()
+            require("core.which-key").setup()
+        end,
+    },
+    {
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
@@ -89,6 +96,7 @@ return {
         lazy = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-fzf-native.nvim",
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons",
         },
