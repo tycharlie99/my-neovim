@@ -14,6 +14,7 @@ function M.setup()
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
 
   lspconfig.jsonls.setup({
     cmd = {
