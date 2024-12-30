@@ -11,6 +11,7 @@ function M.setup()
         ensure_installed = {
             "lua_ls", -- lua
             "clangd", -- c, cpp
+            "pyright",
             "ts_ls", -- typescript, javascript
             "marksman", -- markdown
             "cssls", -- css, scss
