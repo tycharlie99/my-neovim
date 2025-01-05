@@ -52,6 +52,26 @@ function M.setup()
         },
     })
 
+    lspconfig.yamlls.setup({
+        cmd = {
+            "yaml-language-server",
+            "--stdio",
+        },
+        filetypes = {
+            "yaml",
+            "yaml.docker-compose",
+            "yaml.gitlab",
+        },
+        setting = {
+            redhat = {
+                telemetry = {
+                    enabled = false,
+                },
+            },
+        },
+        single_file_support = true,
+    })
+
     lspconfig.jsonls.setup({
         cmd = {
             "vscode-json-language-server",

@@ -18,6 +18,7 @@ function M.setup()
             "html",
             "gopls", -- golang
             "jsonls", -- json
+            "yamlls", -- yaml
         },
     })
 end
