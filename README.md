@@ -2,10 +2,24 @@
 
 The configuration of my neovim.
 
+## Pre-request
+
+- Neovim v0.10+
+    - Ubuntu need build from source
+- [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) for `live_grep` in [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- Mason
+    - `gcc` or `clang` for C/C++
+    - `npm` for most lsp
+    - `go` for go lang lsp
+    - `luarocks` for lua
+
+### Windows
+
+Run in wsl. For yank to clipboard need [win32yank](https://github.com/BurntSushi/ripgrep)
+
 ## Shortcut
 
 - `<leader>`: whitespace key
-
 
 ### Language Config Server config (lspconfig)
 
