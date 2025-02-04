@@ -1,5 +1,9 @@
 return {
     {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+    },
+    {
         "folke/which-key.nvim",
         event = "VeryLazy",
         config = function ()
