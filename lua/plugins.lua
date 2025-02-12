@@ -15,6 +15,17 @@ return {
         end,
     },
     {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+            { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+        },
+        build = "make tiktoken", -- Only on MacOS or Linux
+        config = function ()
+            require("core.copilot-chat").setup()
+        end,
+    },
+    {
         "github/copilot.vim",
         config = function ()
             require("core.copilot").setup()
