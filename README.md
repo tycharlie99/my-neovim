@@ -15,7 +15,7 @@ The configuration of my neovim.
 
 ### Windows
 
-Run in wsl. For yank to clipboard need [win32yank](https://github.com/BurntSushi/ripgrep)
+Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/win32yank)
 
 ## Shortcut
 

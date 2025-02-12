@@ -15,8 +15,26 @@ function M.setup()
     vim.keymap.set("n", "<leader>ff", builtin.find_files, opts("teloscope: Find files"))
     vim.keymap.set("n", "<leader>fg", builtin.live_grep, opts("teloscope: Find live grep"))
     vim.keymap.set("n", "<leader>fb", builtin.buffers, opts("teloscope: Find buffers"))
-
-    telescope.setup()
+    telescope.setup({
+        -- 
+        -- If the system doesn't install `ripgrep`, please uncomment the following setting
+        --
+        -- defaults = {
+        --     vimgrep_arguments = {
+        --         "grep",
+        --         "--extended-regexp",
+        --         "--color=never",
+        --         "--with-filename",
+        --         "--line-number",
+        --         "-b",
+        --         "--recursive",
+        --         "--no-messages",
+        --         "--exclude-dir=*cache*",
+        --         "--exclude-dir=*.git",
+        --         "--binary-files=without-match",
+        --     },
+        -- },
+    })
 end
 
 return M

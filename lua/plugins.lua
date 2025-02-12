@@ -1,5 +1,11 @@
 return {
     {
+        "github/copilot.vim",
+        config = function ()
+            require("core.copilot").setup()
+        end,
+    },
+    {
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
