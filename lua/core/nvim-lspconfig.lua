@@ -32,6 +32,19 @@ function M.setup()
         },
     })
 
+    lspconfig.lua_ls.setup({})
+    lspconfig.clangd.setup({})
+    lspconfig.pyright.setup({})
+    lspconfig.gopls.setup({})
+
+    lspconfig.marksman.setup({})
+    lspconfig.jsonls.setup({})
+    lspconfig.yamlls.setup({})
+
+    lspconfig.html.setup({})
+    lspconfig.cssls.setup({})
+    lspconfig.ts_ls.setup({})
+ 
 end
 
 return M

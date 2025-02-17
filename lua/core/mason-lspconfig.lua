@@ -12,13 +12,15 @@ function M.setup()
             "lua_ls", -- lua
             "clangd", -- c, cpp
             "pyright",
-            "ts_ls", -- typescript, javascript
-            "marksman", -- markdown
-            "cssls", -- css, scss
-            "html",
             "gopls", -- golang
+
+            "marksman", -- markdown
             "jsonls", -- json
             "yamlls", -- yaml
+
+            "html",
+            "cssls", -- css, scss
+            "ts_ls", -- typescript, javascript
         },
     })
 end
