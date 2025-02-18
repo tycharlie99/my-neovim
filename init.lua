@@ -4,36 +4,18 @@ require("config.options")
 _G.lspconfig = {
     lsp_lang = {
         ensure_installed = {
-            "lua_ls", -- lua
-            "clangd", -- c, cpp
-            "pyright",
-            "gopls", -- golang
+            lua_ls = { "lua" },
+            clangd = { "c", "cpp" },
+            pyright = { "python" },
+            gopls = { "go" },
 
-            "marksman", -- markdown
-            "jsonls", -- json
-            "yamlls", -- yaml
+            marksman = { "markdown" },
+            jsonls = { "json" },
+            yamlls = { "yaml" },
 
-            "html",
-            "cssls", -- css, scss
-            "ts_ls", -- typescript, javascript
-        },
-    },
-    nvim_treesitter = {
-        ensure_installed = {
-            "lua",
-            "c",
-            "cpp",
-            "python",
-            "go",
-
-            "markdown",
-            "json",
-            "yaml",
-
-            "html",
-            "css",
-            "javascript",
-            "typescript",
+            html = { "html" },
+            cssls = { "css", "scss" },
+            ts_ls = { "typescript", "javascript" },
         },
     },
 }

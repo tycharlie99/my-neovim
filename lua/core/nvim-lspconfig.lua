@@ -31,13 +31,13 @@ function M.setup()
             border = "rounded",
         },
     })
-    for _, lang in ipairs(_G.lspconfig.lsp_lang.ensure_installed) do
-        if lspconfig[lang] then
-            lspconfig[lang].setup({})
+
+    for lsp, _ in pairs(_G.lspconfig.lsp_lang.ensure_installed) do
+        if lspconfig[lsp] then
+            lspconfig[lsp].setup({})
         else
-            print("LSP server not found for: " .. lang)
-    end
-        lspconfig[lang].setup({})
+            print("LSP server not found for: " .. lsp)
+        end
     end
 end
 

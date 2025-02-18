@@ -7,9 +7,18 @@ function M.setup()
         print("Failed to load nvim-treesitter")
         return
     end
+    local function get_installed_languages()
+        local installed = {}
+        for _, langs in pairs(_G.lspconfig.lsp_lang.ensure_installed) do
+            for _, lang in ipairs(langs) do
+                table.insert(installed, lang)
+            end
+        end
+        return installed
+    end
 
     configs.setup({
-        ensure_installed = _G.lspconfig.nvim_treesitter.ensure_installed,
+        ensure_installed = get_installed_languages(),
         highlight = {
             enable = true,
         },
