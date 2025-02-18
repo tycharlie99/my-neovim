@@ -9,17 +9,7 @@ function M.setup()
     end
 
     configs.setup({
-        ensure_installed = {
-            "c",
-            "cpp",
-            "lua",
-            "markdown",
-            "html",
-            "css",
-            "javascript",
-            "typescript",
-            "go",
-        },
+        ensure_installed = _G.lspconfig.nvim_treesitter.ensure_installed,
         highlight = {
             enable = true,
         },

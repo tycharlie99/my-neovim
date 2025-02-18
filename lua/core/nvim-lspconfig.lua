@@ -31,20 +31,14 @@ function M.setup()
             border = "rounded",
         },
     })
-
-    lspconfig.lua_ls.setup({})
-    lspconfig.clangd.setup({})
-    lspconfig.pyright.setup({})
-    lspconfig.gopls.setup({})
-
-    lspconfig.marksman.setup({})
-    lspconfig.jsonls.setup({})
-    lspconfig.yamlls.setup({})
-
-    lspconfig.html.setup({})
-    lspconfig.cssls.setup({})
-    lspconfig.ts_ls.setup({})
- 
+    for _, lang in ipairs(_G.lspconfig.lsp_lang.ensure_installed) do
+        if lspconfig[lang] then
+            lspconfig[lang].setup({})
+        else
+            print("LSP server not found for: " .. lang)
+    end
+        lspconfig[lang].setup({})
+    end
 end
 
 return M

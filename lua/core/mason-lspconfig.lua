@@ -8,20 +8,7 @@ function M.setup()
         return
     end
     lspconfig.setup({
-        ensure_installed = {
-            "lua_ls", -- lua
-            "clangd", -- c, cpp
-            "pyright",
-            "gopls", -- golang
-
-            "marksman", -- markdown
-            "jsonls", -- json
-            "yamlls", -- yaml
-
-            "html",
-            "cssls", -- css, scss
-            "ts_ls", -- typescript, javascript
-        },
+        ensure_installed = _G.lspconfig.lsp_lang.ensure_installed,
     })
 end
 
