@@ -17,7 +17,7 @@ function M.setup()
     vim.keymap.set("n", "<leader>fb", builtin.buffers, opts("teloscope: Find buffers"))
     telescope.setup({
         -- 
-        -- If the system doesn't install `ripgrep`, please uncomment the following setting
+        -- If the system can't install `ripgrep`, please uncomment the following setting for using grep
         --
         -- defaults = {
         --     vimgrep_arguments = {
