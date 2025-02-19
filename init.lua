@@ -16,6 +16,15 @@ _G.lspconfig = {
         cssls = { "css", "scss" },
         ts_ls = { "typescript", "javascript" },
     },
+    linter = {
+        linters = {
+            "mypy",
+        },
+        formatters = {
+        },
+        code_actions = {
+        },
+    },
 }
 
 require("config.lazy")

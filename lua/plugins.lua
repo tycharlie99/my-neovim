@@ -1,5 +1,17 @@
 return {
     {
+        "nvimtools/none-ls.nvim",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "jay-babu/mason-null-ls.nvim",
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("core.mason-null-ls").setup()
+            require("core.none-ls").setup()
+        end,
+    },
+    {
         "github/copilot.vim",
         config = function ()
             require("core.copilot").setup()
