@@ -32,7 +32,7 @@ function M.setup()
         },
     })
 
-    for lsp, _ in pairs(_G.lspconfig.lsp_lang.ensure_installed) do
+    for lsp, _ in pairs(_G.lspconfig.lsp_lang) do
         if lspconfig[lsp] then
             lspconfig[lsp].setup({})
         else

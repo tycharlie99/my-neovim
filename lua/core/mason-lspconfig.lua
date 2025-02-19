@@ -10,7 +10,7 @@ function M.setup()
 
     local function get_installed_languages()
         local installed = {}
-        for lsp, _ in pairs(_G.lspconfig.lsp_lang.ensure_installed) do
+        for lsp, _ in pairs(_G.lspconfig.lsp_lang) do
             table.insert(installed, lsp)
         end
         return installed

@@ -3,20 +3,18 @@ require("config.options")
 
 _G.lspconfig = {
     lsp_lang = {
-        ensure_installed = {
-            lua_ls = { "lua" },
-            clangd = { "c", "cpp" },
-            pyright = { "python" },
-            gopls = { "go" },
+        lua_ls = { "lua" },
+        clangd = { "c", "cpp" },
+        pyright = { "python" },
+        gopls = { "go" },
 
-            marksman = { "markdown" },
-            jsonls = { "json" },
-            yamlls = { "yaml" },
+        marksman = { "markdown" },
+        jsonls = { "json" },
+        yamlls = { "yaml" },
 
-            html = { "html" },
-            cssls = { "css", "scss" },
-            ts_ls = { "typescript", "javascript" },
-        },
+        html = { "html" },
+        cssls = { "css", "scss" },
+        ts_ls = { "typescript", "javascript" },
     },
 }
 
