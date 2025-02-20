@@ -1,6 +1,9 @@
 return {
     {
-        "nvimtools/none-ls.nvim",
+        -- null-ls.nvim is achieved.
+        -- none-ls.nvim is option for replacing null-ls.nvim, but it is not supported well.
+        -- "nvimtools/none-ls.nvim", 
+        "jose-elias-alvarez/null-ls.nvim",
         dependencies = {
             "williamboman/mason.nvim",
             "jay-babu/mason-null-ls.nvim",
@@ -8,7 +11,7 @@ return {
         },
         config = function()
             require("core.mason-null-ls").setup()
-            require("core.none-ls").setup()
+            require("core.null-ls").setup()
         end,
     },
     {

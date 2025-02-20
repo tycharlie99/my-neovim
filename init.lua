@@ -18,7 +18,8 @@ _G.lspconfig = {
     },
     linter = {
         linters = {
-            "pylint",  -- python
+            "pylint", -- python
+            "cpplint", -- c, cpp
         },
         formatters = {
         },
