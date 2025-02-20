@@ -42,3 +42,6 @@ vim.opt.listchars = {tab = ">-", space = "·", eol = "$"}
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 5
+
+
+vim.opt.completeopt = { "menu", "preview", "menuone", "noinsert", "popup", "noselect" }
