@@ -46,6 +46,10 @@ function M.setup()
         answer_header = " 🐸 ",
         prompts = prompts,
         mappings = {
+             submit_prompt = {
+                normal = "<CR>",
+                insert = "<C-CR>",
+            },
             reset = {
                 normal = "<C-q>",
                 insert = "",
