@@ -7,7 +7,16 @@ function M.setup()
         print("Failed to load which key")
         return
     end
-
+    local opts = {
+        { "<leader>t", group = "Tab" },
+        { "<leader>c", group = "Copilot-Chat" },
+        { "<leader>f", group = "Telescope" },
+        { "<leader>b", group = "Buffer" }
+    }
+    for _, shortcut in ipairs(_G.window_disable) do
+        table.insert(opts, { shortcut, hidden = true})
+    end
+    wk.add(opts)
 end
 
 return M
