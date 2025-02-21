@@ -15,6 +15,8 @@ function M.setup()
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("Rename symbol"))
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code action"))
     vim.keymap.set("n", "<leader>d",
         function()
             vim.diagnostic.open_float(nil, { focus = false, scope = "line" })
@@ -32,9 +34,9 @@ function M.setup()
         },
     })
 
-    for lsp, _ in pairs(_G.lspconfig.lsp_lang) do
+    for lsp, opts in pairs(_G.lspconfig.lsp_lang) do
         if lspconfig[lsp] then
-            lspconfig[lsp].setup({})
+            lspconfig[lsp].setup(opts[1])
         else
             print("LSP server not found for: " .. lsp)
         end

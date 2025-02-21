@@ -10,8 +10,11 @@ function M.setup()
     local function get_installed_languages()
         local installed = {}
         for _, langs in pairs(_G.lspconfig.lsp_lang) do
-            for _, lang in ipairs(langs) do
-                table.insert(installed, lang)
+            for idx, lang in ipairs(langs) do
+                -- Skip the first element, which is for the LSP server setup
+                if idx ~= 1 then
+                    table.insert(installed, lang)
+                end
             end
         end
         return installed
