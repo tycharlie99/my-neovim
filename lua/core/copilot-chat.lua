@@ -27,11 +27,11 @@ function M.setup()
     end
 
     local function opts(desc)
-        return { desc = "telescope: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        return { desc = desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
 
-    vim.keymap.set("n", "<leader>cc", ":CopilotChatToggle<CR>", opts("Toggle Copilot Chat"))
-    vim.keymap.set("v", "<leader>cc", ":CopilotChat<CR>", opts("Ask Copilot in Visual Mode"))
+    vim.keymap.set("n", "<leader>c", ":CopilotChatToggle<CR>", opts("Toggle Copilot Chat"))
+    vim.keymap.set("v", "<leader>c", ":CopilotChat<CR>", opts("Ask Copilot in Visual Mode"))
 
     vim.api.nvim_create_autocmd("BufEnter", {
         pattern = "copilot-",

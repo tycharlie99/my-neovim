@@ -4,32 +4,43 @@ vim.g.mapleader = " "
 local function opts(desc)
     return { desc = desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts("nvim-tree: toggle the window"))
 
+vim.keymap.set("n", "zM", function()
+    if vim.api.nvim_get_option_value("foldlevel", { scope = "local" }) == 0 then
+        vim.opt.foldlevel = 99
+    else
+        vim.opt.foldlevel = 0
+    end
+end, opts("Toggle all folds"))
 
-vim.keymap.set('n', "<leader>bp", ':bprevious<CR>', opts("buffer: previous"))
-vim.keymap.set('n', "<leader>bn", ':bnext<CR>', opts("buffer: next"))
+-- buffer
+vim.keymap.set('n', "<leader>bj", ':bprevious<CR>', opts("buffer: previous"))
+vim.keymap.set('n', "<leader>bk", ':bnext<CR>', opts("buffer: next"))
 vim.keymap.set('n', "<leader>bc", ':bd<CR>', opts("buffer: close"))
 
-
-vim.keymap.set("n", "<leader>tk", ":tabnext<CR>", opts("tab: next"))
+-- tab
 vim.keymap.set("n", "<leader>tj", ":tabprevious<CR>", opts("tab: previous"))
+vim.keymap.set("n", "<leader>tk", ":tabnext<CR>", opts("tab: next"))
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", opts("tab: new"))
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts("tab: close"))
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts("tab: close"))
 
+-- move line
 vim.keymap.set("n", "<M-j>", ":m .+1<CR>", opts("Line: move down"))
 vim.keymap.set("n", "<M-k>", ":m .-2<CR>", opts("Line: move up"))
 
+-- turn off search highlight
 vim.keymap.set("n", "<leader>h", ":noh<CR>", opts("highlight: turn off"))
 
+-- navigate cursor in insert mode
 vim.keymap.set("i", "<C-j>", "<Down>", opts("Down"))
 vim.keymap.set("i", "<C-k>", "<Up>", opts("Up"))
 vim.keymap.set("i", "<C-h>", "<Left>", opts("Left"))
 vim.keymap.set("i", "<C-l>", "<Right>", opts("Right"))
 vim.keymap.set("i", "<C-d>", "<Bs>", opts("Backspace"))
 
-vim.keymap.set("n", "<leader>/", "gcc", {remap = true})
-vim.keymap.set("v", "<leader>/", "gc", {remap = true})
+-- comment
+vim.keymap.set("n", "<leader>/", "gcc", { desc = "Toggle the comment", remap = true})
+vim.keymap.set("v", "<leader>/", "gc", { desc = "Toggle the comment", remap = true})
 
 local resize_shift = 5
 local resize_timerout = 500
@@ -78,8 +89,8 @@ for key, _ in pairs(resize_opts) do
     continue_resize_win(key, resize_opts[key][1])
 end
 
-vim.keymap.set("n", "<C-w>-", ":split<CR>", opts("Split Window: Horizontal"))
-vim.keymap.set("n", "<C-w>\\", ":vsplit<CR>", opts("Split Window: Vertical"))
+vim.keymap.set("n", "<C-w>v", ":vsplit<CR>", opts("Split Window: Vertical"))
+vim.keymap.set("n", "<C-w>h", ":split<CR>", opts("Split Window: Horizontal"))
 
 _G.window_disable = {
     "<C-w>H",
@@ -95,6 +106,7 @@ _G.window_disable = {
     "<C-w><",
     "<C-w>>",
     "<C-w>_",
+    "<C-w>|",
     "<C-w><C-d>",
 }
 
@@ -121,7 +133,7 @@ end, opts("Move to Floating Window"))
 local is_maximized = false
 local win_restore = {}
 
-vim.keymap.set("n", "<leader>z", function()
+vim.keymap.set("n", "<C-w>m", function()
     if not is_maximized then
         win_restore = {
             height = vim.api.nvim_win_get_height(0),

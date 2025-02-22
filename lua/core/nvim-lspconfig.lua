@@ -15,9 +15,9 @@ function M.setup()
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("Rename symbol"))
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code action"))
-    vim.keymap.set("n", "<leader>d",
+    vim.keymap.set("n", "<leader>dr", vim.lsp.buf.rename, opts("Rename symbol"))
+    vim.keymap.set("n", "<leader>dc", vim.lsp.buf.code_action, opts("Code action"))
+    vim.keymap.set("n", "<leader>dd",
         function()
             vim.diagnostic.open_float(nil, { focus = false, scope = "line" })
         end,

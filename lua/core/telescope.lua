@@ -12,9 +12,9 @@ function M.setup()
     end
 
     local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, opts("teloscope: Find files"))
-    vim.keymap.set("n", "<leader>fg", builtin.live_grep, opts("teloscope: Find live grep"))
-    vim.keymap.set("n", "<leader>fb", builtin.buffers, opts("teloscope: Find buffers"))
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, opts("Find files"))
+    vim.keymap.set("n", "<leader>fg", builtin.live_grep, opts("Find live grep"))
+    vim.keymap.set("n", "<leader>fb", builtin.buffers, opts("Find buffers"))
     telescope.setup({
         -- 
         -- If the system can't install `ripgrep`, please uncomment the following setting for using grep

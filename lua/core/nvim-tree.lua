@@ -1,5 +1,6 @@
 local M = {}
 
+
 local function on_attach(bufnr)
     local api = require("nvim-tree.api")
 
@@ -21,6 +22,8 @@ function M.setup()
         print("Failed to load nvim-tree")
         return
     end
+
+    vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvim-tree: toggle the window", buffer = bufnr, noremap = true, silent = true, nowait = true })
 
     nvim_tree.setup({
         on_attach = on_attach,

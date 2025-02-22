@@ -1,3 +1,5 @@
+-- disable the swap file
+vim.opt.swapfile = false
 -- line numbers
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -39,9 +41,19 @@ vim.opt.updatetime = 300
 vim.opt.list = true
 vim.opt.listchars = {tab = ">-", space = "·", eol = "$"}
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 5
+function _G.treesitter_foldtext()
+    -- You can customize how the fold text should be displayed.
+    local fold_start = vim.v.foldstart
+    local fold_end = vim.v.foldend
+    local line_count = fold_end - fold_start + 1
+    return string.format("... %d lines ...", line_count)
+end
 
+vim.opt.foldenable = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- TODO: some error need to be fix
+-- vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+vim.opt.foldlevel = 5
 
 vim.opt.completeopt = { "menu", "preview", "menuone", "noinsert", "popup", "noselect" }
