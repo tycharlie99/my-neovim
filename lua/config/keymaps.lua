@@ -56,15 +56,29 @@ local function reset_resize_timer(key)
     end, resize_timerout)
 end
 
+local function has_win_below_or_above()
+    local cur_win = vim.api.nvim_get_current_win()
+    local cur_row = vim.api.nvim_win_get_position(cur_win)[1]
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local row = vim.api.nvim_win_get_position(win)[1]
+        if row ~= cur_row then
+            return true
+        end
+    end
+    return false
+end
+
 local function resize_win(key)
+
     reset_resize_timer(key)
+
     if key == "l" then
         vim.cmd("vertical resize +" .. resize_shift)
     elseif key == "h" then
         vim.cmd("vertical resize -" .. resize_shift)
-    elseif key == "j" then
+    elseif key == "j" and has_win_below_or_above() then
         vim.cmd("resize -" .. resize_shift)
-    elseif key == "k" then
+    elseif key == "k" and has_win_below_or_above() then
         vim.cmd("resize +" .. resize_shift)
     end
 end

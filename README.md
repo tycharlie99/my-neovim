@@ -25,7 +25,7 @@ Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/
 
 - `<leader>c`: Open the copilot chat
 - In copilot-chat window
-    - Normal mode: <tab> for enter
+    - Normal mode: <CR> for enter
     - Insert mode: <C-CR> for enter
 
 ### Comment
