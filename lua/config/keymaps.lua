@@ -89,8 +89,8 @@ for key, _ in pairs(resize_opts) do
     continue_resize_win(key, resize_opts[key][1])
 end
 
-vim.keymap.set("n", "<C-w>v", ":vsplit<CR>", opts("Split Window: Vertical"))
-vim.keymap.set("n", "<C-w>h", ":split<CR>", opts("Split Window: Horizontal"))
+vim.keymap.set("n", "<C-w>\\", ":vsplit<CR>", opts("Split Window: Vertical"))
+vim.keymap.set("n", "<C-w>-", ":split<CR>", opts("Split Window: Horizontal"))
 
 _G.window_disable = {
     "<C-w>H",
