@@ -41,14 +41,6 @@ vim.opt.updatetime = 300
 vim.opt.list = true
 vim.opt.listchars = {tab = ">-", space = "·", eol = "$"}
 
-function _G.treesitter_foldtext()
-    -- You can customize how the fold text should be displayed.
-    local fold_start = vim.v.foldstart
-    local fold_end = vim.v.foldend
-    local line_count = fold_end - fold_start + 1
-    return string.format("... %d lines ...", line_count)
-end
-
 vim.opt.foldenable = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"

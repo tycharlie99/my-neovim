@@ -33,20 +33,12 @@ function M.setup()
     vim.keymap.set("n", "<leader>c", ":CopilotChatToggle<CR>", opts("Toggle Copilot Chat"))
     vim.keymap.set("v", "<leader>c", ":CopilotChat<CR>", opts("Ask Copilot in Visual Mode"))
 
-    vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "copilot-",
-        callback = function() vim.opt.completeopt = vim.opt.completeopt + "noinsert" + "noselect" end,
-    })
-    vim.api.nvim_create_autocmd("BufLeave", {
-        pattern = "copilot-",
-        callback = function() vim.opt.completeopt = vim.opt.completeopt - "noinsert" - "noselect" end,
-    })
     chat.setup({
         question_header = " 🙋 ",
         answer_header = " 🐸 ",
         prompts = prompts,
         mappings = {
-             submit_prompt = {
+            submit_prompt = {
                 normal = "<CR>",
                 insert = "<C-CR>",
             },
