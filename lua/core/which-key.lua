@@ -13,11 +13,11 @@ function M.setup()
         { "<leader>b", group = "Buffer" },
         { "<leader>d", group = "Lsp" },
 
-        { "za", "Toggle fold under the cursor" },
-        { "zo", "Open fold under the cursor" },
-        { "zO", "Open all fold under the cursor" },
-        { "zc", "Close fold under the cursor" },
-        { "zC", "Close all fold under the cursor" },
+        { "za", desc = "Toggle fold under the cursor" },
+        { "zo", desc = "Open fold under the cursor" },
+        { "zO", desc = "Open all fold under the cursor" },
+        { "zc", desc = "Close fold under the cursor" },
+        { "zC", desc = "Close all fold under the cursor" },
 
         { "g'", hidden = true },
         { "g`", hidden = true },
