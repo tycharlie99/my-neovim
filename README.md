@@ -24,6 +24,9 @@ Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/
 ### Copilot Chat
 
 - `<leader>c`: Open the copilot chat
+- In copilot-chat window
+    - Normal mode: <tab> for enter
+    - Insert mode: <C-CR> for enter
 
 ### Comment
 
@@ -41,8 +44,8 @@ Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/
 
 ### Window
 
-- `<C-w>v`: Split window vertical
-- `<C-w>h`: Split window horizontal
+- `<C-w>\`: Split window vertical
+- `<C-w>-`: Split window horizontal
 - `<C-w>q`: Close window
 - `<C-w>h`: Decrease window width
 - `<C-w>l`: Increase window width
