@@ -16,6 +16,13 @@ function M.setup()
     vim.keymap.set("n", "<leader>fg", builtin.live_grep, opts("Find live grep"))
     vim.keymap.set("n", "<leader>fb", builtin.buffers, opts("Find buffers"))
     telescope.setup({
+        defaults = {
+            file_ignore_patterns = {
+                "node_modules",
+                ".git",
+                ".cache",
+            },
+        },
         -- 
         -- If the system can't install `ripgrep`, please uncomment the following setting for using grep
         --

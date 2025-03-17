@@ -39,7 +39,11 @@ vim.opt.updatetime = 300
 
 -- set list
 vim.opt.list = true
-vim.opt.listchars = {tab = ">-", space = "·", eol = "$"}
+vim.opt.listchars = {
+    tab = ">-",
+    space = "·",
+    eol = "↴",
+}
 
 vim.opt.foldenable = true
 vim.opt.foldmethod = "expr"
