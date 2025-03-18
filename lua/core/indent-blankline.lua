@@ -23,6 +23,7 @@ function M.setup()
 
     ibl.setup({
         indent = {
+            char = "▏",
             -- highlight = highlight,
         },
         scope = {

@@ -39,11 +39,26 @@ vim.opt.updatetime = 300
 
 -- set list
 vim.opt.list = true
-vim.opt.listchars = {
-    tab = ">-",
-    space = "·",
-    eol = "↴",
-}
+
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        local listchars = {
+            eol = "↴",
+        }
+
+        if vim.bo.expandtab then
+            listchars.trail = "·"
+            listchars.tab = ">-"
+        else
+            listchars.space = "·"
+        end
+
+        vim.opt.listchars = listchars
+    end,
+})
+
+
 
 vim.opt.foldenable = true
 vim.opt.foldmethod = "expr"
