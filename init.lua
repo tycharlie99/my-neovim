@@ -18,10 +18,17 @@ _G.lspconfig = {
     },
     linter = {
         linters = {
-            -- "pylint", -- python
-            -- "cpplint", -- c, cpp
+            pylint = {
+                -- disable and for pyright
+                "--disable=import-error",
+                "--disable=unused-import",
+                "--disable=no-member",
+                "--disable=not-callable",
+            }, -- python
+            cpplint = {}, -- c, cpp
         },
         formatters = {
+            clang_format = {}, -- c, cpp
         },
         code_actions = {
         },

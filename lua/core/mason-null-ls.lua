@@ -12,7 +12,7 @@ function M.setup()
     local function get_installed_linters()
         local installed = {}
         for _, type in pairs(_G.lspconfig.linter) do
-            for _, linter in ipairs(type) do
+            for linter, _ in pairs(type) do
                 table.insert(installed, linter)
             end
         end

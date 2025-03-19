@@ -34,9 +34,9 @@ function M.setup()
         },
     })
 
-    for lsp, opts in pairs(_G.lspconfig.lsp_lang) do
+    for lsp, conf in pairs(_G.lspconfig.lsp_lang) do
         if lspconfig[lsp] then
-            lspconfig[lsp].setup(opts[1])
+            lspconfig[lsp].setup(conf[1])
         else
             print("LSP server not found for: " .. lsp)
         end
