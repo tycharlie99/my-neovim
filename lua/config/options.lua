@@ -7,12 +7,35 @@ vim.opt.number = true
 -- set for hidden the text or not
 vim.opt.conceallevel = 0
 
--- tabs & indentation
+-- tabs & indentation for default
+-- change the tab (\t) show as width to length of 4
 vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+-- set the length inserted for each indentation
 vim.opt.softtabstop = 4
+-- affect the behavior of the << and >> commands
+vim.opt.shiftwidth = 4
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+    callback = function()
+        vim.opt_local.expandtab = true
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.softtabstop = 2
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "make", "go" },
+    callback = function()
+        vim.opt_local.expandtab = false
+        vim.opt_local.tabstop = 4
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.softtabstop = 4
+    end,
+})
 
 -- line wrapping
 vim.opt.wrap = true
@@ -51,6 +74,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
             listchars.trail = "·"
             listchars.tab = ">-"
         else
+            listchars.tab = "  "
             listchars.space = "·"
         end
 
