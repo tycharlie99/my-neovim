@@ -1,5 +1,12 @@
 return {
     {
+        "perforce.nvim",
+        dir = vim.fn.stdpath("config") .. "/lua/perforce.nvim",
+        config = function()
+            require("perforce").setup()
+        end
+    },
+    {
         -- null-ls.nvim is achieved.
         -- none-ls.nvim is option for replacing null-ls.nvim, but it is not supported well.
         -- "nvimtools/none-ls.nvim", 
