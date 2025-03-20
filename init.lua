@@ -18,14 +18,20 @@ _G.lspconfig = {
     },
     linter = {
         linters = {
+            -- for the project's setup, please add .pylintrc file
+            -- please refer to https://github.com/pylint-dev/pylint/blob/main/pylintrc
             pylint = {
-                -- disable and for pyright
-                "--disable=import-error",
-                "--disable=unused-import",
-                "--disable=no-member",
-                "--disable=not-callable",
+                extra_args = {
+                    "--max-line-length=5",
+                },
             }, -- python
-            cpplint = {}, -- c, cpp
+            cpplint = {
+                args = {
+                    "--linelength=120",
+                    "--filter=-legal/copyright",
+                    "$FILENAME"
+                },
+            }, -- c, cpp
         },
         formatters = {
             clang_format = {}, -- c, cpp
