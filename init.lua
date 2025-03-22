@@ -1,20 +1,33 @@
 require("config.keymaps")
 require("config.options")
 
+local pyright_config = {
+    settings = {
+        python = {
+            analysis = {
+                diagnosticSeverityOverrides = {
+                    -- for pylint with pylintrc
+                    reportMissingImports = "none",
+                },
+            },
+        }
+    }
+}
+
 _G.lspconfig = {
     lsp_lang = {
         lua_ls = { {}, "lua" },
         clangd = { {}, "c", "cpp" },
-        pyright = { {}, "python" },
-        gopls = { {}, "go" },
+        pyright = { pyright_config, "python" },
+        -- gopls = { {}, "go" },
 
         marksman = { {}, "markdown" },
         jsonls = { {}, "json" },
         yamlls = { {}, "yaml" },
 
-        html = { {}, "html" },
-        cssls = { {}, "css", "scss" },
-        ts_ls = { {}, "typescript", "javascript" },
+        -- html = { {}, "html" },
+        -- cssls = { {}, "css", "scss" },
+        -- ts_ls = { {}, "typescript", "javascript" },
     },
     linter = {
         linters = {
@@ -22,7 +35,7 @@ _G.lspconfig = {
             -- please refer to https://github.com/pylint-dev/pylint/blob/main/pylintrc
             pylint = {
                 extra_args = {
-                    "--max-line-length=5",
+                    "--max-line-length=120",
                 },
             }, -- python
             cpplint = {
