@@ -40,7 +40,7 @@ function M.setup()
         mappings = {
             submit_prompt = {
                 normal = "<CR>",
-                insert = "<C-CR>",
+                insert = "<C-\\>",
             },
             reset = {
                 normal = "<C-q>",
