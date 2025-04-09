@@ -38,17 +38,13 @@ local function get_p4_user()
     return output:match("User name:%s*(%S+)") or "Unknown User"
 end
 
-local function handle_p4_command(cmd, show_in_floating_window)
+local function handle_p4_command(cmd)
     local file = vim.fn.expand("%")
     local output = run_p4_cmd(cmd .. " " .. file)
 
-    if show_in_floating_window then
-        create_floating_window(output)
-    else
-        print(output)
-    end
-
     vim.cmd("checktime")
+
+    print(output:gsub("\n$", ""))
 end
 
 function M.p4_edit()
@@ -68,15 +64,15 @@ function M.p4_revert()
 end
 
 function M.p4_sync()
-    handle_p4_command("sync", true)
+    create_floating_window(run_p4_cmd("sync"))
 end
 
 function M.get_resolve_files()
-    handle_p4_command("resolve -n", true)
+    create_floating_window(run_p4_cmd("resolve -n"))
 end
 
 function M.revert_unmodified_files()
-    create_floating_window(run_p4_cmd("revert -n"))
+    create_floating_window(run_p4_cmd("revert -a"))
 end
 
 function M.list_user_pending_changelists()

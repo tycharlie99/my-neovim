@@ -7,7 +7,16 @@ return {
                 if not ok then
                     return false
                 end
-                return output:find("User name")
+
+                local root = output:match("Client root: ([^\n]+)")
+
+                if root then
+                    local current_dir = vim.fn.getcwd()
+                    if current_dir:find(root, 1, true) then
+                        return true
+                    end
+                end
+                return false
             end
             if is_perforce() then
                 require("core.signify").setup()
