@@ -13,6 +13,7 @@ function M.setup()
         { "<leader>b", group = "Buffer" },
         { "<leader>d", group = "Lsp" },
         { "<leader>n", group = "Formatter" },
+        { "<leader>p", group = "Perforce" },
 
         { "za", desc = "Toggle fold under the cursor" },
         { "zo", desc = "Open fold under the cursor" },
