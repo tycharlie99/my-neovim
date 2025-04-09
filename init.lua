@@ -36,6 +36,9 @@ _G.lspconfig = {
             pylint = {
                 extra_args = {
                     "--max-line-length=120",
+                    "--disable=missing-docstring",
+                    "--disable=missing-function-docstring",
+                    "--disable=invalid-name",
                 },
             }, -- python
             cpplint = {
