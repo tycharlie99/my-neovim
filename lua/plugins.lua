@@ -1,5 +1,28 @@
 return {
     {
+        "mhinz/vim-signify",
+        config = function()
+            local function is_perforce()
+                local ok, output = pcall(vim.fn.system, "p4 opened 2>&1")
+                if not ok then
+                    return false
+                end
+                return not output:find("not under client view")
+            end
+            if is_perforce() then
+                require("core.signify").setup()
+            else
+                vim.g.signify_disable_by_default = 1
+            end
+        end,
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("core.gitsigns").setup()
+        end,
+    },
+    {
         "perforce.nvim",
         dir = vim.fn.stdpath("config") .. "/lua/perforce.nvim",
         config = function()
@@ -116,12 +139,6 @@ return {
         },
         config = function()
             require("core.nvim-tree").setup()
-        end,
-    },
-    {
-        "lewis6991/gitsigns.nvim",
-        config = function()
-            require("core.gitsigns").setup()
         end,
     },
     {
