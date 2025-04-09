@@ -3,11 +3,11 @@ return {
         "mhinz/vim-signify",
         config = function()
             local function is_perforce()
-                local ok, output = pcall(vim.fn.system, "p4 opened 2>&1")
+                local ok, output = pcall(vim.fn.system, "p4 info")
                 if not ok then
                     return false
                 end
-                return not output:find("not under client view")
+                return output:find("User name")
             end
             if is_perforce() then
                 require("core.signify").setup()
