@@ -82,7 +82,44 @@ function M.list_user_pending_changelists()
         return
     end
     local output = run_p4_cmd("changes -u " .. user .. " -s pending")
-    create_floating_window(output)
+
+
+    local output_detail = "default changelist:\n" .. run_p4_cmd("opened -c default") .. "\n"
+
+    for line in output:gmatch("[^\r\n]+") do
+        output_detail = output_detail .. line .. "\n"
+        local changelist = line:match("^Change (%d+)")
+        if changelist then
+
+            local function append_files(cmd, header)
+                local result = run_p4_cmd(cmd)
+                local files_start = result:find(header)
+                if files_start then
+                    local files = result:sub(files_start):gmatch("[^\r\n]+")
+                    local skip_first = true
+                    local has_files = false
+                    for f in files do
+                        if skip_first then
+                            skip_first = false
+                        else
+                            if not has_files then
+                                output_detail = output_detail .. header .. "\n"
+                                has_files = true
+                            end
+                            output_detail = output_detail .. f .. "\n"
+                        end
+                    end
+                end
+            end
+
+            append_files("describe -s " .. changelist, "Affected files ...")
+            append_files("describe -s -S " .. changelist, "Shelved files ...")
+        end
+        output_detail = output_detail .. "\n"
+    end
+
+
+    create_floating_window(output_detail)
 end
 
 function M.setup()
