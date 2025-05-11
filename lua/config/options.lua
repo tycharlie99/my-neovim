@@ -89,12 +89,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
-
 vim.opt.foldenable = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- TODO: some error need to be fix
--- vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.foldlevel = 5
 
 vim.opt.completeopt = { "menu", "preview", "menuone", "noinsert", "popup", "noselect" }
