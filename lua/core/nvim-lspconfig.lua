@@ -44,6 +44,7 @@ function M.setup()
     ensure_installed = {
       "lua_ls",
       "clangd",
+      "ruff",
       "pyright",
       "gopls",
 

@@ -28,14 +28,14 @@ function M.setup()
   null_ls.setup({
     sources = {
       -- please refer to https://github.com/pylint-dev/pylint/blob/main/pylintrc
-      null_ls.builtins.diagnostics.pylint.with({
-        extra_args = {
-          "--max-line-length=120",
-          "--disable=missing-docstring",
-          "--disable=missing-function-docstring",
-          "--disable=invalid-name",
-        },
-      }),
+      -- null_ls.builtins.diagnostics.pylint.with({
+      --   extra_args = {
+      --     "--max-line-length=120",
+      --     "--disable=missing-docstring",
+      --     "--disable=missing-function-docstring",
+      --     "--disable=invalid-name",
+      --   },
+      -- }),
       null_ls.builtins.formatting.clang_format,
     },
   })
