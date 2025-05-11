@@ -39,17 +39,20 @@ return {
         end
     },
     {
-        -- null-ls.nvim is achieved.
-        -- none-ls.nvim is option for replacing null-ls.nvim, but it is not supported well.
-        -- "nvimtools/none-ls.nvim", 
-        "jose-elias-alvarez/null-ls.nvim",
+        "williamboman/mason.nvim",
         dependencies = {
-            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
             "jay-babu/mason-null-ls.nvim",
-            "nvim-lua/plenary.nvim",
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
+            "neovim/nvim-lspconfig",
+            -- null-ls.nvim is achieved.
+            -- "jose-elias-alvarez/null-ls.nvim",
+            "nvimtools/none-ls.nvim",
+            "nvim-lua/plenary.nvim", -- dependency for null-ls
         },
         config = function()
-            require("core.mason-null-ls").setup()
+            require("core.mason").setup()
+            require("core.nvim-lspconfig").setup()
             require("core.null-ls").setup()
         end,
     },
@@ -62,12 +65,6 @@ return {
         build = "make tiktoken", -- Only on MacOS or Linux
         config = function ()
             require("core.copilot-chat").setup()
-        end,
-    },
-    {
-        "github/copilot.vim",
-        config = function ()
-            require("core.copilot").setup()
         end,
     },
     {
@@ -117,19 +114,6 @@ return {
         event = "InsertEnter",
         config = true,
         opts = {},
-    },
-    {
-        "neovim/nvim-lspconfig",
-        lazy = false,
-        dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-        },
-        config = function()
-            require("core.mason").setup()
-            require("core.mason-lspconfig").setup()
-            require("core.nvim-lspconfig").setup()
-        end,
     },
     {
         "cpea2506/one_monokai.nvim",

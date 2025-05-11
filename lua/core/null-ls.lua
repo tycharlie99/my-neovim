@@ -1,38 +1,57 @@
 local M = {}
 
-local function opts(desc)
-    return { desc = "" .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-end
-
 function M.setup()
-    local status, null_ls = pcall(require, "null-ls")
-    if not status then
-        print("Failed to load null-ls")
-        return
-    end
+  local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
+  local null_ls_status, null_ls = pcall(require, "null-ls")
 
-    local function get_source()
-        local source = {}
-        local category_map = {
-            linters = "diagnostics",
-            formatters = "formatting",
-            code_actions = "code_actions",
-        }
-        for key, type in pairs(_G.lspconfig.linter) do
-            local category = category_map[key]
-            for linter, conf in pairs(type) do
-                table.insert(source, null_ls.builtins[category][linter].with(conf))
-            end
-        end
-        return source
-    end
+  if not mason_null_ls_status then
+    vim.notify("Failed to load mason-null-ls", vim.log.levels.ERROR)
+    return
+  end
 
-    vim.api.nvim_set_keymap("n", "<leader>nv", "<cmd>lua vim.lsp.buf.format()<CR>", opts("Formatter: Format code"))
+  if not null_ls_status then
+    vim.notify("Failed to load null-ls", vim.log.levels.ERROR)
+    return
+  end
 
-    null_ls.setup({
-        sources = get_source(),
-    })
+  mason_null_ls.setup({
+    ensure_installed = {
+      -- linters
+      "pylint",
+      -- formatters
+      "clang_format",
+    },
+    automatic_installation = true,
+  })
 
+  ---@diagnostic disable-next-line: redundant-parameter
+  null_ls.setup({
+    sources = {
+      -- please refer to https://github.com/pylint-dev/pylint/blob/main/pylintrc
+      null_ls.builtins.diagnostics.pylint.with({
+        extra_args = {
+          "--max-line-length=120",
+          "--disable=missing-docstring",
+          "--disable=missing-function-docstring",
+          "--disable=invalid-name",
+        },
+      }),
+      null_ls.builtins.formatting.clang_format,
+    },
+  })
+
+  local function opts(desc)
+    return {
+      desc = "" .. desc,
+      noremap = true, silent = true, nowait = true }
+  end
+
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>nv",
+    "<cmd>lua vim.lsp.buf.format()<CR>",
+    opts("Formatter: Format code")
+  )
 end
 
 return M

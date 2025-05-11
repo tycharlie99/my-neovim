@@ -44,7 +44,7 @@ local function handle_p4_command(cmd)
 
     vim.cmd("checktime")
 
-    print(output:gsub("\n$", ""))
+    vim.notify(output:gsub("\n$", ""), vim.log.levels.INFO)
 end
 
 function M.p4_edit()
@@ -78,7 +78,7 @@ end
 function M.list_user_pending_changelists()
     local user = get_p4_user()
     if user == "Unknown User" then
-        print("Could not determine P4 user.")
+        vim.notify("Could not determine P4 user.", vim.log.levels.ERROR)
         return
     end
     local output = run_p4_cmd("changes -u " .. user .. " -s pending")

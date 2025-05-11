@@ -18,23 +18,30 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp" },
-    callback = function()
-        vim.opt_local.expandtab = true
-        vim.opt_local.tabstop = 2
-        vim.opt_local.shiftwidth = 2
-        vim.opt_local.softtabstop = 2
-    end,
+  pattern = {
+    "c",
+    "cpp",
+    "lua",
+  },
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+  end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "make", "go" },
-    callback = function()
-        vim.opt_local.expandtab = false
-        vim.opt_local.tabstop = 4
-        vim.opt_local.shiftwidth = 4
-        vim.opt_local.softtabstop = 4
-    end,
+  pattern = {
+    "make",
+    "go",
+  },
+  callback = function()
+    vim.opt_local.expandtab = false
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+  end,
 })
 
 -- line wrapping
@@ -65,23 +72,22 @@ vim.opt.list = true
 
 
 vim.api.nvim_create_autocmd("BufEnter", {
-    callback = function()
-        local listchars = {
-            eol = "↴",
-        }
+  callback = function()
+    local listchars = {
+      eol = "↴",
+    }
 
-        if vim.bo.expandtab then
-            listchars.trail = "·"
-            listchars.tab = ">-"
-        else
-            listchars.tab = "  "
-            listchars.space = "·"
-        end
+    if vim.bo.expandtab then
+      listchars.trail = "·"
+      listchars.tab = ">-"
+    else
+      listchars.tab = "  "
+      listchars.space = "·"
+    end
 
-        vim.opt.listchars = listchars
-    end,
+    vim.opt.listchars = listchars
+  end,
 })
-
 
 
 vim.opt.foldenable = true

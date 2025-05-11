@@ -25,8 +25,8 @@ Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/
 
 - `<leader>c`: Open the copilot chat
 - In copilot-chat window
-    - Normal mode: <CR> for enter
-    - Insert mode: <C-CR> for enter
+    - Normal mode: `<CR>` for enter
+    - Insert mode: `<C-\>` for enter
 
 ### Comment
 
@@ -56,12 +56,12 @@ Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/
 - `<C-w>=`: Balance window size
 - `<C-w>d`: Navagate to the floating window
 
-### Tab
+### Buffer
 
-- `<leader>tj`: Previous tab
-- `<leader>tk`: Next tab
-- `<leader>tb`: New tab
-- `<leader>tc`: Close tab
+- `<leader>bj`: Previous tab
+- `<leader>bk`: Next tab
+- `<leader>bb`: New tab
+- `<leader>bc`: Close tab
 
 ### Nvim Tree
 
@@ -69,7 +69,6 @@ Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/
 - `C`: Change the root folder
 - `v`: Open in vertical split
 - `h`: Open in horizontal split
-- `t`: Open in new tab
 
 ### Telescope
 

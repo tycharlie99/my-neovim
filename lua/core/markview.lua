@@ -1,35 +1,35 @@
 local M = {}
 
 function M.setup()
-    local status, markview = pcall(require, "markview")
+  local status, markview = pcall(require, "markview")
 
-    if not status then
-        print("Failed to load markview")
-    end
+  if not status then
+    vim.notify("Failed to load markview", vim.log.levels.ERROR)
+  end
 
-    markview.setup({
-        headings = {
-            enable = true,
-            shift_width = 0,
-            heading_1 = {
-                style = "icon",
-                hl = "DiagnosticOk",
-            },
-            heading_2 = {
-                style = "icon",
-                hl = "DiagnosticOk",
-            },
-            heading_3 = {
-                style = "icon",
-                hl = "DiagnosticOk",
-            },
-        },
-        list_items = {
-            enable = true,
-            shift_width = 2,
-            ident_size = 3,
-        },
-    })
+  markview.setup({
+    headings = {
+      enable = true,
+      shift_width = 0,
+      heading_1 = {
+        style = "icon",
+        hl = "DiagnosticOk",
+      },
+      heading_2 = {
+        style = "icon",
+        hl = "DiagnosticOk",
+      },
+      heading_3 = {
+        style = "icon",
+        hl = "DiagnosticOk",
+      },
+    },
+    list_items = {
+      enable = true,
+      shift_width = 2,
+      ident_size = 3,
+    },
+  })
 
 end
 
