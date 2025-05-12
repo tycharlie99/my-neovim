@@ -105,28 +105,6 @@ end
 vim.keymap.set("n", "<C-w>\\", ":vsplit<CR>", opts("Split Window: Vertical"))
 vim.keymap.set("n", "<C-w>-", ":split<CR>", opts("Split Window: Horizontal"))
 
-_G.window_disable = {
-  "<C-w>H",
-  "<C-w>J",
-  "<C-w>K",
-  "<C-w>L",
-  "<C-w>s",
-  "<C-w>v",
-  "<C-w>o",
-  "<C-w>w",
-  "<C-w>x",
-  "<C-w>+",
-  "<C-w><",
-  "<C-w>>",
-  "<C-w>_",
-  "<C-w>|",
-  "<C-w><C-d>",
-}
-
-for _, shortcut in ipairs(_G.window_disable) do
-  vim.keymap.set("n", shortcut, "<Nop>", { noremap = true, silent = true })
-end
-
 vim.keymap.set("n", "<C-w>d", function()
   local wins = vim.api.nvim_list_wins()
 
