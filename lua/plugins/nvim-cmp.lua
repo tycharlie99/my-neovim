@@ -9,8 +9,8 @@ return {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       -- for vsnip
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
+      -- "hrsh7th/cmp-vsnip",
+      -- "hrsh7th/vim-vsnip",
     },
     config = function()
       local cmp = require("cmp")
@@ -24,10 +24,10 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "path" },
           { name = "buffer" },
+          { name = "path" },
           { name = "cmdline" },
-          { name = "vsnip" },
+          -- { name = "vsnip" },
         }),
       })
     end,
