@@ -31,7 +31,12 @@ return {
           --     "--disable=invalid-name",
           --   },
           -- }),
-          null_ls.builtins.formatting.clang_format,
+          null_ls.builtins.formatting.clang_format.with({
+            extra_args = {
+              "--style=Google",
+              "--length=120",
+            },
+          }),
         },
       })
 

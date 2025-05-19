@@ -60,7 +60,9 @@ return {
       vim.lsp.config("clangd", {
         cmd = {
           "clangd",
+          "--background-index",
           "--clang-tidy",
+          "--cross-file-rename",
         },
       })
     end,
