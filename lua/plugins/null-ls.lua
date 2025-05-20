@@ -12,7 +12,6 @@ return {
       require("mason-null-ls").setup({
         ensure_installed = {
           -- linters
-          -- "pylint",
           -- formatters
           "clang_format",
         },
@@ -22,15 +21,6 @@ return {
       local null_ls = require("null-ls")
       null_ls.setup({
         sources = {
-          -- please refer to https://github.com/pylint-dev/pylint/blob/main/pylintrc
-          -- null_ls.builtins.diagnostics.pylint.with({
-          --   extra_args = {
-          --     "--max-line-length=120",
-          --     "--disable=missing-docstring",
-          --     "--disable=missing-function-docstring",
-          --     "--disable=invalid-name",
-          --   },
-          -- }),
           null_ls.builtins.formatting.clang_format.with({
             extra_args = {
               "--style=Google",
@@ -42,9 +32,9 @@ return {
 
       vim.api.nvim_set_keymap(
         "n",
-        "<leader>nv",
+        "<leader>df",
         "<cmd>lua vim.lsp.buf.format()<CR>",
-        {desc = "Formatter: Format code", silent = true, nowait = true }
+        {desc = "Format code", silent = true, nowait = true }
       )
     end,
   }

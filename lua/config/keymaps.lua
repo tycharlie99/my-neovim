@@ -19,16 +19,16 @@ vim.keymap.set("n", "zM", function()
 end, opts("Toggle all folds"))
 
 -- buffer
-vim.keymap.set('n', "<leader>bj", ':bprevious<CR>', opts("Buffer: previous"))
-vim.keymap.set('n', "<leader>bk", ':bnext<CR>', opts("Buffer: next"))
-vim.keymap.set('n', "<leader>bc", ':bd<CR>', opts("Buffer: close"))
+vim.keymap.set('n', "<leader>bj", ':bprevious<CR>', opts("Previous buffer"))
+vim.keymap.set('n', "<leader>bk", ':bnext<CR>', opts("Next buffer"))
+vim.keymap.set('n', "<leader>bc", ':bd<CR>', opts("Close buffer"))
 
 -- move line
-vim.keymap.set("n", "<M-j>", ":m .+1<CR>", opts("Line: move down"))
-vim.keymap.set("n", "<M-k>", ":m .-2<CR>", opts("Line: move up"))
+vim.keymap.set("n", "<M-j>", ":m .+1<CR>", opts("Move line down"))
+vim.keymap.set("n", "<M-k>", ":m .-2<CR>", opts("Move line up"))
 
 -- turn off search highlight
-vim.keymap.set("n", "<leader>h", ":noh<CR>", opts("Highlight: turn off"))
+vim.keymap.set("n", "<leader>h", ":noh<CR>", opts("Disable highlight"))
 
 -- navigate cursor in insert mode
 vim.keymap.set("i", "<C-j>", "<Down>", opts("Down"))
@@ -92,18 +92,18 @@ local function continue_resize_win(key, desc)
 end
 
 local resize_opts = {
-  h = { "Resize Window: Decrease Width" },
-  j = { "Resize Window: Decrease Height" },
-  k = { "Resize Window: Increase Height" },
-  l = { "Resize Window: Increase Width" },
+  h = { "Decrease window width" },
+  j = { "Decrease window height" },
+  k = { "Increase window height" },
+  l = { "Increase window width" },
 }
 
 for key, _ in pairs(resize_opts) do
   continue_resize_win(key, resize_opts[key][1])
 end
 
-vim.keymap.set("n", "<C-w>\\", ":vsplit<CR>", opts("Split Window: Vertical"))
-vim.keymap.set("n", "<C-w>-", ":split<CR>", opts("Split Window: Horizontal"))
+vim.keymap.set("n", "<C-w>\\", ":vsplit<CR>", opts("Split window vertical"))
+vim.keymap.set("n", "<C-w>-", ":split<CR>", opts("Split window horizontal"))
 
 vim.keymap.set("n", "<C-w>d", function()
   local wins = vim.api.nvim_list_wins()

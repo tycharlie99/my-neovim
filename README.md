@@ -4,20 +4,17 @@ The configuration of my neovim.
 
 ## Pre-request
 
-- Neovim v0.10+
-    - Ubuntu need build from source
+- Neovim v0.11+
 - [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) for `live_grep` in [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- Mason
-    - `gcc` or `clang` for C/C++
-    - `npm` for most lsp
-    - `go` for go lang lsp
-    - `luarocks` for lua
+- [mason.nvim](https://github.com/mason-org/mason.nvim) needs some language packages. Please use `:checkhealth mason` to get a full list.
 
 ### Windows
 
 Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/win32yank)
 
-## Shortcut
+## Keymap and Shortcut
+
+The keymap and shortcut have the hint by [which-key.nvim](https://github.com/folke/which-key.nvim). The following is the most commonly used.
 
 - `<leader>`: whitespace key
 
@@ -34,13 +31,14 @@ Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/
 
 > The comment key works in normal mode and visual mode.
 
-### Language Config Server config (lspconfig)
+### Language Config Server
 
 - `gd`: Go to definition
 - `gD`: Go to declaration
 - `<leader>dr`: Rename
 - `<leader>dc`: Code action
 - `<leader>dd`: Show diagnostic
+- `<leader>df`: Format document
 
 ### Window
 
@@ -79,11 +77,14 @@ Run in wsl. For yank to clipboard need [win32yank](https://github.com/equalsraf/
 ### Folding
 
 - `za`: Toggle the fold under the cursor
-
 - `zo`: Open the fold under the cursor
 - `zO`: Open the all folds under the cursor
-
 - `zc`: Close the fold under the cursor
 - `zC`: Close the all folds under the cursor
-
 - `zM`: Toggle all folds
+
+## License
+
+This project is licensed under the MIT License.
+The license is effective retroactively, applying to all source code, documentation, and related materials created from the project's inception in 2024 up to the present date.
+By using or distributing this software, you agree to be bound by the terms of this license throughout the entire period of development and maintenance.

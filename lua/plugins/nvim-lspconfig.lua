@@ -8,7 +8,7 @@ return {
     config = function()
       local function opts(desc)
         return {
-          desc = "nvim-lspconfig: " .. desc,
+          desc = desc,
           noremap = true,
           silent = true,
           nowait = true
