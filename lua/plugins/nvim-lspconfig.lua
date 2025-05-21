@@ -65,6 +65,17 @@ return {
           "--cross-file-rename",
         },
       })
+      vim.lsp.config("pyright", {
+        root_markers = {
+          "pyproject.toml",
+          "setup.py",
+          "setup.cfg",
+          "requirements.txt",
+          "Pipfile",
+          "pyrightconfig.json",
+          ".git",
+        },
+      })
     end,
   },
 }
