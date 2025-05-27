@@ -41,8 +41,15 @@ return {
 
       require("nvim-tree").setup({
         on_attach = on_attach,
-        git = {
-          ignore = false,
+        filters = {
+          git_ignored = false,
+          dotfiles = false,
+          custom = {
+            "^\\.git$", -- only hide the .git directory
+            "node_modules",
+            ".cache",
+            ".DS_Store",
+          },
         },
       })
     end,
