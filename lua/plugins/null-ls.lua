@@ -1,6 +1,7 @@
 return {
   {
     "nvimtools/none-ls.nvim",
+    branch = "main",
     dependencies = {
       "williamboman/mason.nvim",
       -- null-ls.nvim is achieved.

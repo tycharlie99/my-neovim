@@ -1,8 +1,25 @@
 return {
-  { "lewis6991/gitsigns.nvim", opts = {} },
-  { "williamboman/mason.nvim", opts = {} },
-  { "numToStr/Comment.nvim", opts = {} },
-  { "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
+  {
+    "lewis6991/gitsigns.nvim",
+    version = "^1.0.2",
+    opts = {}
+  },
+  {
+    "williamboman/mason.nvim",
+    version = "^2.0.0",
+    opts = {}
+  },
+  {
+    "numToStr/Comment.nvim",
+    version = "^0.8.0",
+    opts = {}
+  },
+  {
+    "windwp/nvim-autopairs",
+    branch = "master",
+    event = "InsertEnter",
+    opts = {}
+  },
   {
     "perforce.nvim",
     dir = vim.fn.stdpath("config") .. "/lua/perforce.nvim",
@@ -12,6 +29,7 @@ return {
   },
   {
     "christoomey/vim-tmux-navigator",
+    version = "^1.0",
     cmd = {
       "TmuxNavigateLeft",
       "TmuxNavigateDown",
@@ -30,6 +48,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    version = "^4.9.1",
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
       options = {
@@ -39,6 +58,7 @@ return {
   },
   {
     "cpea2506/one_monokai.nvim",
+    version = "^2.5.0",
     lazy = false,
     priority = 1000,
     opts = {
@@ -54,6 +74,7 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    version = "^3.9.0",
     main = "ibl",
     opts = {
       indent = {
