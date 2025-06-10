@@ -1,5 +1,9 @@
 return {
   {
+    "github/copilot.vim",
+    version = "^1.50.0",
+  },
+  {
     "CopilotC-Nvim/CopilotChat.nvim",
     version = "^3.12.0",
     dependencies = {
