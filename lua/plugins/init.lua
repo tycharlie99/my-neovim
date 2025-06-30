@@ -1,5 +1,16 @@
 return {
   {
+    "j-hui/fidget.nvim",
+    version = "^1.6.1",
+    opts = {
+      notification = {
+        window = {
+          winblend = 0,
+        }
+      }
+    }
+  },
+  {
     "lewis6991/gitsigns.nvim",
     version = "^1.0.2",
     opts = {}
