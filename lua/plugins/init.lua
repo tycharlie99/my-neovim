@@ -32,13 +32,6 @@ return {
     opts = {}
   },
   {
-    "perforce.nvim",
-    dir = vim.fn.stdpath("config") .. "/lua/perforce.nvim",
-    config = function()
-      require("perforce").setup()
-    end
-  },
-  {
     "christoomey/vim-tmux-navigator",
     version = "^1.0",
     cmd = {
@@ -50,23 +43,11 @@ return {
       "TmuxNavigatorProcessList",
     },
     keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    },
-  },
-  {
-    "akinsho/bufferline.nvim",
-    version = "^4.9.1",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    opts = {
-      options = {
-        mode = "buffers",
-      }
     },
   },
   {

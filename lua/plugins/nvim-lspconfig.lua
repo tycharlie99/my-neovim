@@ -20,6 +20,7 @@ return {
         }
       end
 
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts("Show references"))
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
@@ -68,17 +69,6 @@ return {
           "--background-index",
           "--clang-tidy",
           "--cross-file-rename",
-        },
-      })
-      vim.lsp.config("pyright", {
-        root_markers = {
-          "pyproject.toml",
-          "setup.py",
-          "setup.cfg",
-          "requirements.txt",
-          "Pipfile",
-          "pyrightconfig.json",
-          ".git",
         },
       })
     end,
