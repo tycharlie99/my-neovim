@@ -10,9 +10,18 @@ return {
     },
     cmd = "Telescope",
     keys = {
-      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files", silent = true, nowait = true },
-      { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Find live grep", silent = true, nowait = true },
-      { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Find buffers", silent = true, nowait = true },
+      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files",     silent = true, nowait = true },
+      { "<leader>fg", "<cmd>Telescope live_grep<CR>",  desc = "Find live grep", silent = true, nowait = true },
+      { "<leader>fb", "<cmd>Telescope buffers<CR>",    desc = "Find buffers",   silent = true, nowait = true },
+      {
+        "<leader>fd",
+        function()
+          require('telescope.builtin').diagnostics({bufnr = 0})
+        end,
+        desc = "Buffer Diagnostics",
+        silent = true,
+        nowait = true,
+      },
     },
     opts = {
       defaults = {
