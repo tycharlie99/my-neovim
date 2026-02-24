@@ -16,7 +16,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    version = "^1.0.2",
+    version = "^2.0.0",
     opts = {}
   },
   {
@@ -37,7 +37,7 @@ return {
   },
   {
     "christoomey/vim-tmux-navigator",
-    version = "^1.0",
+    -- version = "^1.0",
     cmd = {
       "TmuxNavigateLeft",
       "TmuxNavigateDown",
