@@ -2,6 +2,10 @@ return {
   {
     "github/copilot.vim",
     version = "^1.50.0",
+    config = function()
+      vim.g.copilot_no_tab_map = true
+      vim.keymap.set("i", "<C-t>", "copilot#Accept('\\<CR>')", { expr = true, replace_keycodes = false })
+    end
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -17,8 +21,7 @@ return {
         { desc = "Toggle Copilot Chat", nowait = true, silent = true })
       vim.keymap.set("v", "<leader>c", "<cmd>CopilotChat<CR>",
         { desc = "Ask Copilot in Visual Mode", nowait = true, silent = true })
-      vim.keymap.set("i", "<C-t>", "copilot#Accept('\\<CR>')", { expr = true, replace_keycodes = false })
-      vim.g.copilot_no_tab_map = true
+
       -- Auto-command to customize chat buffer behavior
       vim.api.nvim_create_autocmd('BufEnter', {
         pattern = 'copilot-chat',
@@ -34,16 +37,6 @@ return {
           user = '🙋 You',
           assistant = '🐸 Copilot',
           tool = '🔧 Tool',
-        },
-        mappings = {
-          submit_prompt = {
-            normal = "<CR>",
-            insert = "<C-\\>",
-          },
-          reset = {
-            normal = "<C-q>",
-            insert = "",
-          }
         },
       })
     end,
